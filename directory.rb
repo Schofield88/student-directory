@@ -1,4 +1,3 @@
-student_count = 11
 # First, add and print student names
 students = [
 
