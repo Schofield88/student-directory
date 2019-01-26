@@ -18,8 +18,8 @@ def print_header
   puts "-------------------------------"
 end
 
-def print(names)
-  names.each { |name| puts name }
+def print(students)
+  students.each { |name| puts "#{students[0]} (#{students[1]} cohort)"  }
 end
 
 def print_footer(names)
