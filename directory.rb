@@ -1,16 +1,16 @@
 # First, add and print student names
 students = [
-  "Dr Hannibal Lecter",
-  "Darth Vader",
-  "Nurse Ratched",
-  "Michael Corleone",
-  "Alex Delarge",
-  "The Wicked Witch of the West",
-  "The Terminator",
-  "Freedy Kruger",
-  "The Joker",
-  "Joffrey Baratheon",
-  "Norman Bates"
+  ["Dr Hannibal Lecter", :november],
+  ["Darth Vader", :november],
+  ["Nurse Ratched", :november],
+  ["Michael Corleone", :november],
+  ["Alex Delarge", :november],
+  ["The Wicked Witch of the West", :november],
+  ["The Terminator", :november],
+  ["Freedy Kruger", :november],
+  ["The Joker", :november],
+  ["Joffrey Baratheon", :november],
+  ["Norman Bates", :november]
 ]
 
 def print_header
