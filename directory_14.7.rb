@@ -1,5 +1,6 @@
 @students = []
 @cohort = :February
+require 'csv'
 
 def print_header
 
