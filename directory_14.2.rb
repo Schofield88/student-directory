@@ -102,6 +102,7 @@ end
 
 def try_load_students
 
+  filename = ARGV.first
   if ARGV.first.nil?
     load_students
   else
