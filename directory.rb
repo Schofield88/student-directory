@@ -98,6 +98,16 @@ def save_students
 
 end
 
+def load_students
+
+  file = File.open("students.csv", "r")
+  file.readlines.each { |line|
+    name, cohort = line.chomp.split(",")
+      @students << {name: name, cohort: cohort.intern} }
+  file.close
+
+end
+
 def interactive_menu
 
   loop do
