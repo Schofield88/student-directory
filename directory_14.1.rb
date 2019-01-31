@@ -26,7 +26,7 @@ def input_students
   puts "Press enter twice to exit."
   name = STDIN.gets.chomp
   while !name.empty?
-    @students << {name: name, cohort: @cohort}
+    push_to_students
     puts "Now we have #{@students.count} students."
     name = STDIN.gets.chomp
   end
@@ -91,19 +91,10 @@ def load_students(filename = "students.csv")
   file = File.open(filename, "r")
   file.readlines.each { |line|
     name, cohort = line.chomp.split(",")
-      @students << {name: name, cohort: @cohort} }
+      push_to_students }
   file.close
   puts ("*" * 30).center(80)
   puts "Student directory loaded.".center(80)
-
-end
-
-def interactive_menu
-
-  loop do
-    print_menu
-    process(STDIN.gets.chomp)
-  end
 
 end
 
@@ -118,6 +109,21 @@ def try_load_students
   else
     puts "Sorry, #{filename} does not exist.".center(80)
     exit
+  end
+
+end
+
+def push_to_students
+
+  @students << {name: name, cohort: @cohort}
+
+end
+
+def interactive_menu
+
+  loop do
+    print_menu
+    process(STDIN.gets.chomp)
   end
 
 end
