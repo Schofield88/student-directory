@@ -71,7 +71,7 @@ end
 
 def save_students
 
-  file = File.open("students.csv", "w") do
+  File.open("students.csv", "w") do |file|
   @students.each { |student| # iterate over the students
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(",")
@@ -83,9 +83,9 @@ end
 
 def load_students(filename = "students.csv")
 
-  file = File.open(filename, "r") do
-  file.readlines.each { |line|
-    name, cohort = line.chomp.split(",")
+  File.open(filename, "r") do |file|
+    file.readlines.each { |line|
+      name, cohort = line.chomp.split(",")
       push_to_students(name) }
   end
   puts ("*" * 30).center(80)
