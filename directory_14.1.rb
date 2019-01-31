@@ -26,7 +26,7 @@ def input_students
   puts "Press enter twice to exit."
   name = STDIN.gets.chomp
   while !name.empty?
-    push_to_students
+    push_to_students(name)
     puts "Now we have #{@students.count} students."
     name = STDIN.gets.chomp
   end
@@ -91,7 +91,7 @@ def load_students(filename = "students.csv")
   file = File.open(filename, "r")
   file.readlines.each { |line|
     name, cohort = line.chomp.split(",")
-      push_to_students }
+      push_to_students(name) }
   file.close
   puts ("*" * 30).center(80)
   puts "Student directory loaded.".center(80)
@@ -113,7 +113,7 @@ def try_load_students
 
 end
 
-def push_to_students
+def push_to_students(name)
 
   @students << {name: name, cohort: @cohort}
 
