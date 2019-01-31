@@ -55,6 +55,7 @@ def print_menu
   puts "=" * 30
   puts "1. Input the students."
   puts "2. Show the list of students."
+  puts "3. Save the list of students to csv."
   puts "9. Exit."
   puts "=" * 30
   puts ""
@@ -78,6 +79,8 @@ def process(selection)
       show_students
     when "9"
       exit
+    when "3"
+      save_students
     else
       puts "Please select a valid command."
     end
