@@ -98,6 +98,7 @@ def save_students
     csv_line = student_data.join(",")
     file.puts csv_line }
   file.close
+  puts "Student directory saved."
 
 end
 
@@ -108,6 +109,7 @@ def load_students
     name, cohort = line.chomp.split(",")
       @students << {name: name, cohort: cohort.intern} }
   file.close
+  puts "Student directory loaded."
 
 end
 
