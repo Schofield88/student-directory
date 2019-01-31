@@ -97,15 +97,11 @@ end
 
 def try_load_students
 
+  filename = ARGV.first
   if ARGV.first.nil?
     load_students
   else
-    if File.exists?(filename)
-      load_students(filename)
-    else
-      puts "Sorry, #{filename} does not exist.".center(80)
-      exit
-    end
+    File.exists?(filename) ? load_students(filename) : (puts "Sorry, #{filename} does not exist.".center(80)); exit
   end
 
 end
