@@ -55,9 +55,13 @@ end
 
 def print_menu
 
+  puts ""
+  puts "=" * 30
   puts "1. Input the students."
   puts "2. Show the list of students."
   puts "9. Exit."
+  puts "=" * 30
+  puts ""
 
 end
 
