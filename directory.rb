@@ -27,7 +27,7 @@ def input_students
   while !name.empty?
     @students << {name: name, cohort: :Feburary}
     puts "Now we have #{@students.count} students."
-    name = gets.chomp
+    name = STDIN.gets.chomp
   end
 
 end
