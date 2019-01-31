@@ -1,20 +1,3 @@
-=begin
-# First, add and print student names
-students = [
-  {name: "Dr Hannibal Lecter", cohort: "november"},
-  {name: "Darth Vader", cohort: "november"},
-  {name: "Nurse Ratched", cohort: "november"},
-  {name: "Michael Corleone", cohort: "november"},
-  {name: "Alex Delarge", cohort: "november"},
-  {name: "The Wicked Witch of the West", cohort: "november"},
-  {name: "The Terminator", cohort: "november"},
-  {name: "Freedy Kruger", cohort: "november"},
-  {name: "The Joker", cohort: "november"},
-  {name: "Joffrey Baratheon", cohort: "november"},
-  {name: "Norman Bates", cohort: "november"}
-]
-=end
-
 @students = []
 
 def print_header
@@ -40,7 +23,7 @@ def input_students
 
   puts "Please enter the names of the students."
   puts "Press enter twice to exit."
-  name = STDIN.gets
+  name = STDIN.gets.chomp
   while !name.empty?
     @students << {name: name, cohort: :Feburary}
     puts "Now we have #{@students.count} students."
@@ -109,7 +92,8 @@ def load_students(filename = "students.csv")
     name, cohort = line.chomp.split(",")
       @students << {name: name, cohort: cohort.intern} }
   file.close
-  puts "Student directory loaded."
+  puts ("*" * 30).center(80)
+  puts "Student directory loaded.".center(80)
 
 end
 
@@ -117,7 +101,7 @@ def interactive_menu
 
   loop do
     print_menu
-    process(STDIN.gets)
+    process(STDIN.gets.chomp)
   end
 
 end
@@ -128,13 +112,14 @@ def try_load_students
   return if filename.nil? # exit the method if no argument given
   if File.exists?(filename)
     load_students(filename)
-    puts "Loaded #{@students.count} from #{filename}"
+    puts "Loaded #{@students.count} from #{filename}".center(80)
+    puts ("*" * 30).center(80)
   else
-    puts "Sorry, #{filename} does not exist."
+    puts "Sorry, #{filename} does not exist.".center(80)
     exit
   end
 
 end
 
-
+try_load_students
 interactive_menu
