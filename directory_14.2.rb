@@ -95,20 +95,22 @@ def load_students(filename = "students.csv")
   file.close
   puts ("*" * 30).center(80)
   puts "Student directory loaded.".center(80)
+  puts "Loaded #{@students.count} from #{filename}".center(80)
+  puts ("*" * 30).center(80)
 
 end
 
 def try_load_students
 
-  filename = ARGV.first # first argument from the command line
-  return if filename.nil? # exit the method if no argument given
-  if File.exists?(filename)
-    load_students(filename)
-    puts "Loaded #{@students.count} from #{filename}".center(80)
-    puts ("*" * 30).center(80)
+  if ARGV.first.nit?
+    load_students
   else
-    puts "Sorry, #{filename} does not exist.".center(80)
-    exit
+    if File.exists?(filename)
+      load_students(filename)
+    else
+      puts "Sorry, #{filename} does not exist.".center(80)
+      exit
+    end
   end
 
 end
