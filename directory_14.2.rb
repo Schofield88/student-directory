@@ -102,8 +102,8 @@ end
 
 def try_load_students
 
-  if ARGV.first.nit?
-    load_students()
+  if ARGV.first.nil?
+    load_students
   else
     if File.exists?(filename)
       load_students(filename)
