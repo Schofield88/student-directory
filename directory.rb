@@ -40,14 +40,10 @@ def input_students
 
   puts "Please enter the names of the students."
   puts "Press enter twice to exit."
-  # get the first name
   name = gets.chomp
-  # while name is not empty, repeat this code
   while !name.empty?
-    # add the student hash to the array
-    @students << {name: name, cohort: :november}
+    @students << {name: name, cohort: :Feburary}
     puts "Now we have #{@students.count} students."
-    # get another name from the user
     name = gets.chomp
   end
 
@@ -88,6 +84,16 @@ def process(selection)
 
 end
 
+def save_students
+
+  file = File.open("students.csv", "w") # open the file for writing
+  @students.each { |student| # iterate over the students
+    student_data = [student[:name], student[:cohort]]
+    csv_line = student_data.join(",")
+    file.puts csv_line }
+  file.close
+
+end
 
 def interactive_menu
 
