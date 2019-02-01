@@ -99,11 +99,10 @@ end
 
 def try_load_students
 
-  filename = ARGV.first
-  if ARGV.first.nil?
-    load_students
+  if ARGV.first.exists?
+    File.exists?(ARGV.first) ? csv_name = ARGV.first : (puts "Sorry, #{ARGV.first} does not exist.".center(80)); exit
   else
-    File.exists?(filename) ? load_students(filename) : (puts "Sorry, #{filename} does not exist.".center(80)); exit
+    csv_name = "students.csv"
   end
 
 end
