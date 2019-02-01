@@ -11,7 +11,7 @@ end
 
 def print_student_list
 
-  CSV.foreach (@csv_name, "r") { |entry| puts "#{entry[0]}, #{entry[1]} cohort." }
+  CSV.foreach (@csv_name) { |entry| puts "#{entry[0]}, #{entry[1]} cohort." }
 
 end
 
@@ -41,8 +41,6 @@ def print_menu
   puts "=" * 30
   puts "1. Input the students."
   puts "2. Show the list of students."
-  puts "3. Save the list of students to csv."
-  puts "4. Load student directory from csv."
   puts "9. Exit."
   puts "=" * 30
   puts ""
@@ -97,7 +95,7 @@ end
 
 def try_load_students
 
-  if ARGV.first.exists?
+  if !ARGV.first.nil?
     File.exists?(ARGV.first) ? @csv_name = ARGV.first : (puts "Sorry, #{ARGV.first} does not exist.".center(80)); exit
   else
     @csv_name = "students.csv"
