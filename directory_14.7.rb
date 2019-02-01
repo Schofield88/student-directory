@@ -28,7 +28,8 @@ def input_students
   name = STDIN.gets.chomp
   while !name.empty?
     write_to_students(name)
-    puts "Now we have #{@students.count} students."
+    csv_size = CSV.open("students.csv", "r") { |file| file.readlines.size }
+    puts "Now we have #{csv_size} students."
     name = STDIN.gets.chomp
   end
 
