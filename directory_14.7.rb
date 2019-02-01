@@ -105,7 +105,7 @@ end
 
 def write_to_students(name)
 
-  CSV.open(@csv_name, "a") { |csv| csv << [name: name, cohort: @cohort] }
+  CSV.open(@csv_name, "a") { |csv| csv << [name, @cohort.intern] }
 
 end
 
