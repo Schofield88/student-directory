@@ -28,7 +28,7 @@ def input_students
   name = STDIN.gets.chomp
   while !name.empty?
     write_to_students(name)
-    csv_size = CSV.open("students.csv", "r") { |file| file.readlines.size }
+    csv_size = CSV.open(@csv_name, "r") { |file| file.readlines.size }
     puts "Now we have #{csv_size} students."
     name = STDIN.gets.chomp
   end
@@ -53,7 +53,7 @@ def show_students
 
   print_header
   print_student_list
-  print_footer(@csv_name)
+  print_footer
 
 end
 
