@@ -1,4 +1,3 @@
-@students = []
 @cohort = :February
 require 'csv'
 
@@ -64,32 +63,6 @@ def process(selection)
     else
       puts "Please select a valid command."
     end
-
-end
-
-def save_students
-
-  File.open("students.csv", "w") do |file|
-  @students.each { |student|
-    student_data = [student[:name], student[:cohort]]
-    csv_line = student_data.join(",")
-    file.puts csv_line }
-  end
-  puts "Student directory saved."
-
-end
-
-def load_students(filename = "students.csv")
-
-  File.open(filename, "r") do |file|
-    file.readlines.each { |line|
-      name, cohort = line.chomp.split(",")
-      write_to_students(name) }
-  end
-  puts ("*" * 30).center(80)
-  puts "Student directory loaded.".center(80)
-  puts "Loaded #{@students.count} from #{filename}".center(80)
-  puts ("*" * 30).center(80)
 
 end
 
