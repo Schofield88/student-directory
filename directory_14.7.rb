@@ -15,9 +15,9 @@ def print_student_list
 
 end
 
-def print_footer(names)
+def print_footer
 
-  puts "Overall we have #{names.count} great students."
+  puts "Overall we have #{CSV.open(@csv_name, "r") { |file| file.readlines.size }} great students."
 
 end
 
@@ -53,7 +53,7 @@ def show_students
 
   print_header
   print_student_list
-  print_footer(@students)
+  print_footer(@csv_name)
 
 end
 
