@@ -27,7 +27,7 @@ def input_students
   puts "Press enter twice to exit."
   name = STDIN.gets.chomp
   while !name.empty?
-    push_to_students(name)
+    write_to_students(name)
     puts "Now we have #{@students.count} students."
     name = STDIN.gets.chomp
   end
@@ -73,7 +73,7 @@ end
 def save_students
 
   File.open("students.csv", "w") do |file|
-  @students.each { |student| # iterate over the students
+  @students.each { |student|
     student_data = [student[:name], student[:cohort]]
     csv_line = student_data.join(",")
     file.puts csv_line }
@@ -87,7 +87,7 @@ def load_students(filename = "students.csv")
   File.open(filename, "r") do |file|
     file.readlines.each { |line|
       name, cohort = line.chomp.split(",")
-      push_to_students(name) }
+      write_to_students(name) }
   end
   puts ("*" * 30).center(80)
   puts "Student directory loaded.".center(80)
@@ -107,9 +107,9 @@ def try_load_students
 
 end
 
-def push_to_students(name)
+def write_to_students(name)
 
-  @students << {name: name, cohort: @cohort}
+  CSV.open("students.csv", "a") { |csv| csv << [name: name, cohort: @cohort] }
 
 end
 
