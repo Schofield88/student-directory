@@ -11,7 +11,7 @@ end
 
 def print_student_list
 
-  @students.each { |element| puts "#{element[:name]} (#{element[:cohort]} cohort)"  }
+  CSV.foreach (@csv_name, "r") { |entry| puts "#{entry[0]}, #{entry[1]} cohort." }
 
 end
 
@@ -109,7 +109,7 @@ end
 
 def write_to_students(name)
 
-  CSV.open("students.csv", "a") { |csv| csv << [name: name, cohort: @cohort] }
+  CSV.open(@csv_name, "a") { |csv| csv << [name: name, cohort: @cohort] }
 
 end
 
